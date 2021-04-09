@@ -6,6 +6,8 @@
   <p>Welcome, You are logged in as {{ user.username }}</p>
 {% else %}
   <a href="{% provider_login_url 'google' %}">Login With Google</a>
+  <a href="accounts/login"> Login </a>
+
 {% endif %}
 </body>
 </html>
