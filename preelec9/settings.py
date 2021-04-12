@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'preelec9_camp.apps.Preelec9CampConfig'
 ]
 
 MIDDLEWARE = [
