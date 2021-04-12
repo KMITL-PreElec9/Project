@@ -1,16 +1,5 @@
 {% extends "base.html" %}
 {% load socialaccount %}
-<<<<<<< HEAD
-<html>
-<body>
-<h1>ระบบทดสอบ </h1>
-{% if user.is_authenticated %}
-  <p>ตอนนี้คุณกำลังเข้าใช้ชื่อ {{ user.username }}</p>
-{% else %}
-  <a href="{% provider_login_url 'google' %}">Login With Google</a>
-  <a href="accounts/login"> Login </a>
-=======
->>>>>>> 91f58c3e2929ff67f39699f0c44fe67ed8273fdf
 
 {% block content %}
 <h1>ยินดีต้อนรับ</h1>
