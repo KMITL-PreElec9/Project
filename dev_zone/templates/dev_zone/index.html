@@ -1,0 +1,28 @@
+<!doctype html>
+<head>
+    <title>ทดสอบบ</title>
+</head>
+<body>
+{% if submitted %}
+    <p class="success">
+        Your message was submitted successfully. The data that you have been submitted is. 
+    </p>
+<ul>
+    <li>Name: {{name}}</li>
+    <li>Email: {{email}}</li>
+    <li>Subject: {{subject}}</li>
+    <li>Message: {{message}}</li>
+</ul>
+{% else %}
+<form action="" method="post" novalidate>
+<table>
+{{ form.as_table }}
+    <tr>
+        <td>&nbsp;</td>
+        <td><input type="submit" value="Submit"></td>
+    </tr>
+</table>
+{% csrf_token %}
+ </form>
+{% endif %}
+</body>
