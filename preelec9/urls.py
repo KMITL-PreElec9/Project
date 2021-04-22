@@ -27,4 +27,5 @@ urlpatterns = [
     path('accounts/login', LoginView.as_view()),
     path('accounts/logout', LogoutView.as_view()),
     path('preelec9-camp/', include('preelec9_camp.urls')),
+    path('developers/', include('dev_zone.urls'))
 ]
