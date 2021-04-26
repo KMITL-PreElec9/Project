@@ -8,34 +8,45 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-    .navbar {
+
+    }
+    body {
+      background-color: rgb(252, 252, 252);
+        } 
+        .navbar {
     margin-bottom: 0;
     border-radius: 0;
+    background-color: rgb(197, 238, 248);
   }
-  .row.content {height: 450px}
-  
+  .row.content {height: 550px}
+
   /* Set gray background color and 100% height */
-  .sidenav {
-    padding-top: 20px;
-    background-color: #f1f1f1;
-    height: 100%;
+  #test{
+    border-style : ridge ;
+    border-radius : 10pt;
   }
-  
+  #test2{
+    text-align: right;
+    padding: 40px;
+  }
   /* Set black background color, white text and some padding */
   footer {
-    background-color: #555;
+    background-color: rgb(133, 131, 128);
     color: white;
-    padding: 15px;
+    padding: 37px;
+    font-size: 16px;
   }
   
   /* On small screens, set height to 'auto' for sidenav and grid */
   @media screen and (max-width: 767px) {
-    .sidenav {
+    /*.sidenav {
+      /*background-color: rgb(250, 10, 10);
       height: auto;
       padding: 15px;
     }
     .row.content {height:auto;} 
-  }
+  }      
+  */
   </style>
 </head>
 <body>
@@ -78,7 +89,6 @@
         {% block extra_body %}
         {% endblock %}
     </div>
-    <div class="col-sm-2 sidenav">
     </div>
   </div>
 </div>
@@ -87,6 +97,7 @@
   <p>เกี่ยวกับเรา</p>
   เว็บไซต์นี้จัดทำโดยนักศึกษาชั้นปีที่ 2 ภาควิชาวิศวกรรมอิเล็กทรอนิกส์ คณะวิศวกรรมศาสตร์ <br>
 สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+
 </footer>
 
 </body>

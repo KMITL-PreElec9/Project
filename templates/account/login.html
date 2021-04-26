@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+
 {% extends "account/base.html" %}
 
 {% load i18n %}
@@ -7,7 +10,24 @@
 
 {% block content %}
 
-<h1>{% trans "Test Sign In" %}</h1>
+
+
+<head>
+  <style>
+  h1 {
+    color: rgb(155, 164, 248);
+    text-align: center;
+    font-size: 45px;
+    font-family: "Lucida Console", "Courier New", monospace;
+  } 
+  </style>
+  </head>
+  <body>
+  <div id= 'test'>
+  <h1>{% trans "Sign In" %}</h1>
+  
+  </body>
+  </html>
 
 {% get_providers as socialaccount_providers %}
 
@@ -40,7 +60,10 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "ลืมรหัสผ่าน?" %}</a>
+ 
+   <div id= 'test2'>
   <button class="primaryAction" type="submit">{% trans "ลงชื่อเข้าใช้" %}</button>
 </form>
-
+</div>
 {% endblock %}
+</div>
