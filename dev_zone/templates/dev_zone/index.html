@@ -1,8 +1,5 @@
-<!doctype html>
-<head>
-    <title>ทดสอบบ</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 {% if submitted %}
     <p class="success">
         Your message was submitted successfully. The data that you have been submitted is. 
@@ -13,6 +10,7 @@
     <li>Subject: {{subject}}</li>
     <li>Message: {{message}}</li>
 </ul>
+<a href="showdata">Show Other Messages</a>
 {% else %}
 <form action="" method="post" novalidate>
 <table>
@@ -24,5 +22,6 @@
 </table>
 {% csrf_token %}
  </form>
+ <a href="showdata">Show Other Messages</a>
 {% endif %}
-</body>
+{% endblock content %}

@@ -10,5 +10,5 @@ def index(request):
         a = 'Error'    
     return HttpResponse(a)
 
-def test(request):
-    return render(request, 'test.html')
+#def test(request):
+#    return render(request, 'test.html')
