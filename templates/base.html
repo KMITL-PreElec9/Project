@@ -56,12 +56,13 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="#">หน้าหลัก</a></li>
-        <li><a href="#">รอ 1</a></li>
+        <li><a href="/preelec9-camp/test">รอ 1</a></li>
         <li><a href="#">รอ 2</a></li>
         <li><a href="#">รอ 3</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
     {%if user.is_authenticated %}
+         <li>{{user.email}}</li>
          <li><a href="{{ HTTP_HOST }}/accounts/logout"><span class="glyphicon glyphicon-log-out"></span> ลงชื่อออก</a></li></p>
     {% else %}
          <li><a href="{{ HTTP_HOST }}/accounts/login"><span class="glyphicon glyphicon-log-in"></span> ลงชื่อเข้าใช้</a></li></p>

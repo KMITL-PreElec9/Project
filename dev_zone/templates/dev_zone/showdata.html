@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+{% for d in data %}    
+    <ul>
+        <li>Name: {{d.name}}</li>
+        <li>Email: {{d.email}}</li>
+        <li>Subject: {{d.subject}}</li>
+        <li>Message: {{d.message}}</li>
+        <li>Date_Time: {{d.datetime}}</li>
+    </ul>
+{% endfor %}
+{% endblock %}

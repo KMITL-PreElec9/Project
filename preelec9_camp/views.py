@@ -9,3 +9,6 @@ def index(request):
     except:
         a = 'Error'    
     return HttpResponse(a)
+
+def test(request):
+    return render(request, 'test.html')
