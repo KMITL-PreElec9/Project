@@ -40,3 +40,8 @@ class Test_Campdata(models.Model):
     def __str__(self):
         return self.name
 
+class Auth_Staff(models.Model):
+    email = models.EmailField()
+    division = models.CharField(max_length=100)
+    def __str__(self):
+        return self.email

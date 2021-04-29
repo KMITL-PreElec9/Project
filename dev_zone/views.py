@@ -31,3 +31,11 @@ def index(request):
 def show_data(request):
     getdata = Data.objects.all()
     return render(request, 'dev_zone/showdata.html', {'data': getdata})
+
+def test_camp(request):
+    try:
+        a = request.user.email  
+        output = Auth_Staff.objects.get(email = a)
+    except:
+        output = False 
+    return render(request, 'dev_zone/test_camp.html', {'staffdata': output})
