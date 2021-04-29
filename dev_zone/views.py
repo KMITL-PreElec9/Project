@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from dev_zone.forms import ContactForm
-from .models import Data
+from .models import *
 from django.utils import timezone
 
 def index(request):
