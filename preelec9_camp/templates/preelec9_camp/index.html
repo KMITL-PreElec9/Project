@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>ยินดีต้อนรับ</h1>
+<p> หน้าหลักค่าย Pre-Elec 9</p>
+{% if completed_reg%}
+ท่านได้ยืนยันการสมัครเข้าค่ายแล้ว
+<a href="register/2">แก้ไขข้อมูล</a>
+{% else %}
+ยังไม่พบประวัติการยืนยันเข้าค่าย
+<a href="register/">สมัครเข้าค่าย</a>
+{% endif%}
+{% endblock %}

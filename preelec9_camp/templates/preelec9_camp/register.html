@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+{% if success %}
+<p>ท่านได้ยืนยันการสมัครเข้าค่าย Pre-Elec9 แล้ว</p>
+<a href = '\camp'>กลับหน้าหลักค่าย</a>
+{% else %}
+{% if db or page == 1 %}
+{% if page != 1%}
+<p>พบข้อมูลของ {{db.gender}} {{db.name}} ในรายชื่อผู้ยืนยันสิทธิ์ โปรดตรวจสอบข้อมูลต่อไปนี้ให้ครบถ้วน เพื่อสมัครเข้าค่าย Pre-Elec9</p>
+{% endif %}
+<form action="" method="post">
+{{ form.as_p }}
+{% if page != 1%}
+<p><input type="submit" value="บันทึกข้อมูล"></p>
+{% else %}
+<p><input type="submit" value="ค้นหารายชื่อ"></p>
+{% endif %}
+{% csrf_token %}
+ </form>
+{% else %}
+<p>ไม่พบข้อมูล โปรดติดต่อผู้ดูแลระบบเพื่อสมัครเข้าค่าย Pre-Elec9</p>
+{% endif %}
+{% endif %}
+{% endblock content %}
