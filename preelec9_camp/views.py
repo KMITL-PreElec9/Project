@@ -24,7 +24,7 @@ def unregister(request):
         db = False
     return redirect(index)
 
-def register(request, page_id=1):
+def register(request, page_id=1, message = 0):
     if page_id == 1:
         try:
             del request.session['reg_name']
@@ -42,6 +42,8 @@ def register(request, page_id=1):
                 cd = form.cleaned_data
                 try:
                     db = Campdata.objects.get(name = cd['name'])
+                    if db.reg_useremail:
+                        return redirect(register, page_id = 1)
                     db.gender = cd['gender']
                     db.save()
                 except:
