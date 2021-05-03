@@ -8,12 +8,26 @@
 {% if page != 1%}
 <p>พบข้อมูลของ {{db.gender}} {{db.name}} ในรายชื่อผู้ยืนยันสิทธิ์ โปรดตรวจสอบข้อมูลต่อไปนี้ให้ครบถ้วน เพื่อสมัครเข้าค่าย Pre-Elec9</p>
 {% endif %}
+{% if page == 1%}
+<h2>ตรวจสอบสิทธิ์การสมัครเข้าค่าย</h2>
+{% elif page ==  2%}
+<h2>ข้อมูลส่วนตัว</h2>
+{% elif page ==  3%}
+<h2>ข้อมูลติดต่อ</h2>
+{% elif page ==  4%}
+<h2>ประวัติการแพ้ยา-แพ้อาหาร และโรคประจำตัว</h2>
+{% elif page ==  5%}
+<h2>ความตั้งใจ/จุดมุ่งหมายในการเรียน</h2>
+{% endif %}
 <form action="" method="post">
 {{ form.as_p }}
-{% if page != 1%}
-<p><input type="submit" value="บันทึกข้อมูล"></p>
-{% else %}
+{% if page == 1%}
 <p><input type="submit" value="ค้นหารายชื่อ"></p>
+{% elif page == 6%}
+<p>ระบบได้บันทึกข้อมูลของท่านเรียบร้อยแล้ว</p>
+<p><input type="submit" value="ยืนยันการสมัคร"></p>
+{% else %}
+<p><input type="submit" value="บันทึกข้อมูล"></p>
 {% endif %}
 {% csrf_token %}
  </form>

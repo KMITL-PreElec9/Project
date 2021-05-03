@@ -13,6 +13,17 @@ def index(request):
         completed = False
     return render(request, 'preelec9_camp/index.html', {'completed_reg': completed})
 
+def unregister(request):
+    try:
+        db = Campdata.objects.get(reg_useremail = request.user.email)
+        db.completed = False
+        db.reg_useremail = None
+        db.save()
+        del request.session['reg_name']
+    except:
+        db = False
+    return redirect(index)
+
 def register(request, page_id=1):
     if page_id == 1:
         try:
@@ -118,6 +129,8 @@ def register(request, page_id=1):
                     db = Campdata.objects.get(name = request.session.get('reg_name'))
                     db.passion = cd['passion']
                     db.save()
+                if db.reg_useremail:
+                    return redirect(index)
                 return redirect(register, page_id = 6)
             else:
                 try:
@@ -127,7 +140,7 @@ def register(request, page_id=1):
                             'passion' : db.passion , 
                         })
                 except:
-                    db = False; form = False          
+                    db = False; form = False       
                 return render(request, 'preelec9_camp/register.html', {'form': form,'db': db,'page': page_id})
     elif page_id == 6:
         form= ""
