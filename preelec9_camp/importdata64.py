@@ -7,7 +7,7 @@ def cvtime(oldtime):
     time = datetime.datetime.strptime(oldtime, "%d/%m/%Y").strftime("%Y-%m-%d")
     return(time)
 
-data = pd.read_csv ('preelec9_camp/data.csv')   
+data = pd.read_csv ('preelec9_camp/64Data.csv')   
 fields = ["name","self_telephone_num","line_id","birth_date","email","nickname"]
 Campdata.objects.all().delete()
 for j in range(0,len(data)):

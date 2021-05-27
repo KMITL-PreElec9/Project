@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+{% if value%}
+ <h3>ข้อมูลส่วนตัว</h3>
+<ul>
+    <li>ชื่อ-นามสกุล: {{value.gender}} {{value.name}}</li>
+    <li>ชื่อเล่น: {{value.nickname}}</li>
+    <li>รหัสนักศึกษา: {{value.student_id}}</li>
+    <li>อีเมล: {{value.email}}</li>
+    <li>วันเดือนปีเกิด: {{value.birth_date}}</li>
+    <li>ศาสนา: {{value.religion}}</li>
+</ul>
+<h3>ประวัติการแพ้</h3>
+<ul>
+    <li>อาหารที่แพ้: {{value.allergic_foods}}</li>
+    <li>ยาที่แพ้: {{value.allergic_meds}}</li>
+    <li>โรคประจำตัว: {{value.congenital_disease}}</li>
+</ul>
+<h3>ข้อมูลติดต่อ</h3>
+<ul>
+    <li>ที่อยู่: {{value.address}}</li>
+    <li>เบอร์โทร: {{value.self_telephone_num}}</li>
+    <li>เบอร์โทรผู้ปกครอง: {{value.parent_telephone_num}}</li>
+    <li>ไอดีไลน์: {{value.line_id}}</li>
+    <li>Facebook: {{value.facebook}}</li>
+    <li>Instragram: {{value.instagram}}</li>
+</ul>
+<h3>ความตั้งใจ/จุดมุ่งหมายในการเรียน</h3>
+{{value.passion}}
+{% else%}
+<table>
+<tr>
+        <th>
+            ชื่อ-นามสกุล
+        </th>
+        <th>
+            สถานะการกรอกข้อมูล
+        </th>
+    </tr>
+{% for obj in data%}
+    <tr>
+        <th>
+            <a href="?id={{obj.id}}">  {{obj}} 
+        </th>
+        <th>
+            {%if obj.completed%}
+            *
+            {%endif%}
+        </th>
+    </tr>
+{% endfor%}
+</table>
+{% endif%}
+{% endblock content %}

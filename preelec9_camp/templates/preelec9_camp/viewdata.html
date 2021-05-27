@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+ <h3>ข้อมูลส่วนตัว</h3>
+<ul>
+    <li>ชื่อ-นามสกุล: {{db.gender}} {{db.name}}</li>
+    <li>ชื่อเล่น: {{db.nickname}}</li>
+    <li>รหัสนักศึกษา: {{db.student_id}}</li>
+    <li>อีเมล: {{db.email}}</li>
+    <li>วันเดือนปีเกิด: {{db.birth_date}}</li>
+    <li>ศาสนา: {{db.religion}}</li>
+</ul>
+<h3>ประวัติการแพ้</h3>
+<ul>
+    <li>อาหารที่แพ้: {{db.allergic_foods}}</li>
+    <li>ยาที่แพ้: {{db.allergic_meds}}</li>
+    <li>โรคประจำตัว: {{db.congenital_disease}}</li>
+</ul>
+<h3>ข้อมูลติดต่อ</h3>
+<ul>
+    <li>ที่อยู่: {{db.address}}</li>
+    <li>เบอร์โทร: {{db.self_telephone_num}}</li>
+    <li>เบอร์โทรผู้ปกครอง: {{db.parent_telephone_num}}</li>
+    <li>ไอดีไลน์: {{db.line_id}}</li>
+    <li>Facebook: {{db.facebook}}</li>
+    <li>Instragram: {{db.instagram}}</li>
+</ul>
+<h3>ความตั้งใจ/จุดมุ่งหมายในการเรียน</h3>
+{{db.passion}}
+<p>
+<a href = "../">กลับหน้าหลักค่าย</a>
+</p>
+{% endblock content %}

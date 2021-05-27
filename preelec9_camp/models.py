@@ -2,7 +2,7 @@ from django.db import models
 
 class Staff_auth(models.Model):
     email = models.CharField(max_length=200)
-    division = models.CharField(max_length=200) 
+    division = models.CharField(max_length=200, null = True) 
     def __str__(self):
         return self.email
 
@@ -36,5 +36,7 @@ class Campdata(models.Model):
     passion = models.TextField(null=True)
     completed = models.BooleanField(default=False)
     reg_useremail = models.EmailField(null = True)
+    house = models.CharField(max_length= 30, null = True)
+    registered = models.BooleanField(default=False)
     def __str__(self):
         return self.name

@@ -11,19 +11,35 @@ def index(request):
         completed = True
     except:
         completed = False
-    return render(request, 'preelec9_camp/index.html', {'completed_reg': completed})
+    try: 
+        db2 = Staff_auth.objects.get(email = request.user.email)
+        return render(request, 'preelec9_camp/index.html', {'staff': True})
+    except:
+        return render(request, 'preelec9_camp/index.html', {'completed_reg': completed})
 
 def unregister(request):
     try:
         db = Campdata.objects.get(reg_useremail = request.user.email)
         db.completed = False
         db.reg_useremail = None
+        #db.house = None
         db.save()
         del request.session['reg_name']
     except:
         db = False
     return redirect(index)
-
+r'''
+def randomHouse(dbobj, data):
+    if data.house != None:
+        return data.house
+    house = "Ares", "Poseidon", "Zues", "Hermes"
+    if data.gender == "นาย":
+        a = len(dbobj.objects.filter(gender = "นาย", completed = 1))
+    else:
+        a = len(dbobj.objects.filter(gender = "นางสาว", completed = 1))
+    house_id = a % 4
+    return house[house_id]
+'''
 def register(request, page_id=1, message = 0):
     if page_id == 1:
         try:
@@ -130,6 +146,7 @@ def register(request, page_id=1, message = 0):
                     cd = form.cleaned_data
                     db = Campdata.objects.get(name = request.session.get('reg_name'))
                     db.passion = cd['passion']
+                    #db.house = randomHouse(Campdata, db)
                     db.save()
                 if db.reg_useremail:
                     return redirect(index)
@@ -165,3 +182,23 @@ def register(request, page_id=1, message = 0):
     else:
         return redirect(register, page_id = 1)
 
+def viewdata(request):
+    try:
+        db = Campdata.objects.get(reg_useremail = request.user.email)
+        if db.completed ==1:
+            return render(request, 'preelec9_camp/viewdata.html',{'db': db})
+        else: return redirect(index)
+    except:
+        return redirect(index)
+
+def viewdata64(request):
+    try:  
+        db2 = Staff_auth.objects.get(email = request.user.email)
+    except:
+      return redirect(index)
+    if request.GET.get('id')==None:
+        db = Campdata.objects.all()
+        return render(request,'preelec9_camp/viewdata64.html', {'data': db})
+    else:
+        value = Campdata.objects.get(id = request.GET["id"])
+        return render(request,'preelec9_camp/viewdata64.html', {'value': value})
