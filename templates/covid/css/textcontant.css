@@ -1,5 +1,10 @@
 @font-face {
     font-family: 'mali';
+    src: url('../font/mali/Mali-Light.ttf') format("truetype");
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'mali-1';
     src: url('../font/mali/Mali-Bold.ttf') format("truetype");
     font-weight: bold;
 }
@@ -29,4 +34,7 @@
     font-family: 'mali';
 }
 
+.textmali-1{
+    font-family: 'mali-1';
+}
 
