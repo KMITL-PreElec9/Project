@@ -1,104 +1,200 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Electronics Engineering, KMITL</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-
-    }
-    body {
-      background-color: rgb(252, 252, 252);
-        } 
-        .navbar {
-    margin-bottom: 0;
-    border-radius: 0;
-    background-color: rgb(197, 238, 248);
-  }
-  .row.content {height: 550px}
-
-  /* Set gray background color and 100% height */
-  #test{
-    border-style : ridge ;
-    border-radius : 10pt;
-  }
-  #test2{
-    text-align: right;
-    padding: 40px;
-  }
-  /* Set black background color, white text and some padding */
-  footer {
-    background-color: rgb(133, 131, 128);
-    color: white;
-    padding: 37px;
-    font-size: 16px;
-  }
+<!-- Created By CodingNepal -->
+  <head>
+    <meta charset="utf-8">
+    <title>Responsive Navigation Bar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+     
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat',sans-serif;
   
-  /* On small screens, set height to 'auto' for sidenav and grid */
-  @media screen and (max-width: 767px) {
-    /*.sidenav {
-      /*background-color: rgb(250, 10, 10);
-      height: auto;
-      padding: 15px;
-    }
-    .row.content {height:auto;} 
-  }      
-  */
-  </style>
-</head>
-<body>
+}
+/*.header{
+  position: fixed;
+  
+}*/
+nav{
+  background: #131313;/*สีบาด้านบน*/
+  padding: 5px 40px;
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  
+}
+nav ul li{
+  padding: 15px 0;
+  cursor: pointer;
+}
+nav ul li.items{
+  position: relative;
+  width: auto;
+  margin: 0 16px;
+  text-align: center;
+  order: 3;
+}
+nav ul li.items:after{/* สีเส้นวางเม้า*/
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0px;
+  height: 2px;
+  width: 100%;
+  background: #ffffff;
+  opacity: 0;
+  transition: all 0.15s linear;
+}
+nav ul li.items:hover:after{
+  opacity: 1;
+  bottom: 8px;
+}
+nav ul li.logo a{
+  /*สีตัวหนังสือโลโก้*/
+  color: rgb(228, 228, 228);
+  font-size: 35px;
+  font-weight: 650;
+ 
+}
+nav ul li.fake{
+  flex: 9;
+  color: white;
+  font-size: 5px;
+  font-weight: 600;
+  cursor: default;
+  user-select: none;
+ 
+}
+nav ul li a{
+  color: rgb(223, 223, 223);
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 00;
+  
+  
+  
+}
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">หน้าหลัก</a></li>
-        <li><a href="#">รอ 1</a></li>
-        <li><a href="#">รอ 2</a></li>
-        <li><a href="#">รอ 3</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-    {%if user.is_authenticated %}
-         <li><a href="accounts/logout"><span class="glyphicon glyphicon-log-out"></span> ลงชื่อออก</a></li></p>
-    {% else %}
-         <li><a href="accounts/login"><span class="glyphicon glyphicon-log-in"></span> ลงชื่อเข้าใช้</a></li></p>
-    {% endif %}
-      </ul>
-    </div>
-  </div>
+nav ul li.items:hover a{
+  color: rgb(255, 255, 255);
+  transition: .4s;/*ตอนวางเม้า*/
+}
+nav ul li.logo:hover a{
+  color: rgb(255, 255, 255);
+  
+  /*โลโก้ตอนวางเม้า*/
+}
+
+nav ul li.logo:hover img{
+  
+  content: url('static/image/icon03.png');
+  
+
+  /*background:url("static/image/bgpagefb.jpg") no-repeat 0 0;*/ 
+}
+nav ul li.btn:hover a{
+  color: rgb(255, 255, 255);
+  transition: .4s;
+}
+
+nav ul li i{
+  font-size: 23px;
+}
+nav ul li.btn{
+  display: none;
+  
+}
+nav ul li.btn.hide i:before{
+  content: '\f00d';
+  
+}
+.content {
+  height: 2500px;
+  background: url('static/image/pgapp.jpg');
+  
+}
+.contentt{
+  background: rgb(212, 205, 205);
+  height: 1000px;
+}
+
+@media all and (max-width: 1000px){
+  nav{
+    padding: 5px 30px;
+  }
+  nav ul li.items{
+    width: 100%;
+    display: none;
+  }
+  nav ul li.items.show{
+    display: block;
+    
+  }
+  nav ul li.btn{
+    display: block;
+  }
+  nav ul li.items:hover{
+    border-radius: 5px;
+    box-shadow: inset 0 0 5px #ffffff,
+                inset 0 0 10px #8debf1;
+    transition: .4s;
+  }
+  nav ul li.items:hover:after{
+    opacity: 0;
+  }
+
+}
+
+    </style>
+  </head>
+  <body>
+    <nav class="header" id="header">
+      <ul>
+        
+      <li class="logo"><a href="{{ HTTP_HOST }}">Pre Elec</a></li>
+        <li class="fake"></li>
+        <li class="items"><a href="{{ HTTP_HOST }}">Home</a></li>
+        <li class="items"><a href="#">About</a></li>
+        <li class="items"><a href="#">Blogs</a></li>
+        <li class="items"><a href="#">Contact</a></li>
+        <li class="items"><a href="#">Covid19</a></li>
+{%if user.is_authenticated %}
+         <li style="color: azure;">{{user.email}}</li>
+         <li class="items"><a href="{{ HTTP_HOST }}/accounts/logout">ลงชื่อออก</a></li></p>
+{% else %}
+         <li class="items"><a href="{{ HTTP_HOST }}/accounts/login">ลงชื่อเข้าใช้</a></li></p>
+{% endif %}
+        <li class="btn"><a href="#"><i class="fas fa-bars"></i></a></li>
+  </ul>
 </nav>
-  
-<div class="container-fluid text-center">    
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
-    </div>
-    <div class="col-sm-8 text-left"> 
-        {% block content %}
-        {% endblock %}
-        {% block extra_body %}
-        {% endblock %}
-    </div>
-    </div>
+<script>
+  $(document).ready(function(){
+    $('.btn').click(function(){
+      $('.items').toggleClass("show");
+      $('ul li').toggleClass("hide");
+    });
+  });
+</script>
+<div class="content">
+  <div id="fb-root"></div>
+  {% block content %}
+  {% endblock %}
+  {% block extra_body %}
+  {% endblock %}
   </div>
 </div>
 
-<footer class="container-fluid text-center">
-  <p>เกี่ยวกับเรา</p>
-  เว็บไซต์นี้จัดทำโดยนักศึกษาชั้นปีที่ 2 ภาควิชาวิศวกรรมอิเล็กทรอนิกส์ คณะวิศวกรรมศาสตร์ <br>
-สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
 
-</footer>
-
-</body>
+    
+  </body>
 </html>

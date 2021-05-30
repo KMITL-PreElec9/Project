@@ -1,0 +1,10 @@
+.banner{
+    width: 100%;
+    display: block;
+}
+
+.banner > .banner-image{
+    height: 270px;
+    display: block;
+    width: 100%;
+}
